@@ -6,26 +6,13 @@ import './styles/index.scss';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import TodoReducer from './Todo/store/TodoReducer';
 
 import * as serviceWorker from './serviceWorker';
 
-const rootReducer = combineReducers({
-    todo: TodoReducer
-});
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-
 const app = (
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
